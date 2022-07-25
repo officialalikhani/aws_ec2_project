@@ -5,9 +5,8 @@ Also, You can use the Docker images that has been built for more convenient and 
 
 ## Installation
 
-Use the Dockerfile(postgres) for database.
-Use the Dockerfile(python) for beckend API.
-And use postgres.sh for create database with tables and columns , you should copy this file onto docker image but don't worry about this on dockerfile this problem was solved.
+Use the Dockerfile(postgres) for database, And use the Dockerfile(python) for beckend API.
+Also use postgres.sh for create database with tables and columns , you should copy this file onto docker image but don't worry about this on dockerfile this problem was solved.
 At first install docker and docker-compose in your os environment.
 After that run this command 
 
@@ -39,6 +38,7 @@ services:
 ## Dockerfiles
 Lets see those docker files 
 
+This is for build postgresql image
 ```dockerfile
 FROM postgres
 ENV POSTGRES_PASSWORD P@ssw0rd
@@ -88,3 +88,4 @@ EOF"
 ```
 
 
+Email me, If you have any questions...!
