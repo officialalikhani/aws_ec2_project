@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+ backend:
+  build: ./backend
+  ports:
+   - 3838:3838
+  environment:
+   - ENVWORKERS : 2
+ db:
+  build: ./db
+  ports:
+   - 5432:5432
+  volumes:
+   - ./database:/var/lib/postgresql 
+
