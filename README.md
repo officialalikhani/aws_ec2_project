@@ -1,55 +1,34 @@
-One Paragraph of project description goes here
+# Foobar
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Foobar is a Python library for dealing with word pluralization.
 
-Prerequisites
-What things you need to install the software and how to install them
+## Installation
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-Say what the step will be
+```bash
+pip install foobar
+```
 
-Give the example
-And repeat
+## Usage
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+```python
+import foobar
 
-Running the tests
-Explain how to run the automated tests for this system
+# returns 'words'
+foobar.pluralize('word')
 
-Break down into end to end tests
-Explain what these tests test and why
+# returns 'geese'
+foobar.pluralize('goose')
 
-Give an example
-And coding style tests
-Explain what these tests test and why
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
 
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+Please make sure to update tests as appropriate.
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
