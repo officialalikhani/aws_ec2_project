@@ -12,33 +12,79 @@ At first install docker and docker-compose in your os environment.
 After that run this command 
 
 ```bash
-pip3 install awscli
-pip3 install boto3
+docker-compose up
 ```
-After that use you this command
+After that You can see containers will build with those dockerfiles .
+
+## Docker-compose
+Lets see  the Docker-compose file 
+```yml
+version: "3.9"
+services:
+ backend:
+  build: ./backend
+  ports:
+   - 3838:3838
+  environment:
+   - ENVWORKERS : 2
+ db:
+  build: ./db
+  ports:
+   - 5432:5432
+  volumes:
+   - ./database:/var/lib/postgresql 
+```
+
+
+## Dockerfiles
+Lets see those docker files 
+
+```dockerfile
+FROM postgres
+ENV POSTGRES_PASSWORD P@ssw0rd
+ENV POSTGRES_DB postgres
+COPY postgres.sh /docker-entrypoint-initdb.d/
+RUN chmod +x /docker-entrypoint-initdb.d/postgres.sh
+```
+
+And this is for build fastapi python image
+
+```dockerfile
+FROM python:3.9
+COPY ./requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install  -r requirements.txt
+COPY ./main.py .
+COPY ./aws_class.py .
+EXPOSE 3838 
+ARG WORKERS
+ENV ENVWORKERS=$WORKERS
+CMD ["sh", "-c","uvicorn main:app --host 0.0.0.0 --port 3838 --workers ${ENVWORKERS}"]
+```
+
+## postgres bash
+Lets see postgresql bash script for
+
 ```bash
-aws configure
+#!/bin/sh
+psql << EOF
+-- Table: public.aws
+-- DROP TABLE public.aws;
+CREATE TABLE IF NOT EXISTS public.aws
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    id_vm  character varying COLLATE pg_catalog."default" NOT NULL,
+    ip_address character varying COLLATE pg_catalog."default" NOT NULL,
+    username character varying COLLATE pg_catalog."default" NOT NULL,
+    size_ character varying COLLATE pg_catalog."default" NOT NULL,
+    location_ character varying COLLATE pg_catalog."default" NOT NULL,
+    date character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT aws_pkey PRIMARY KEY (id)
+)
+TABLESPACE pg_default;
+ALTER TABLE public.aws
+    OWNER to postgres;
+EOF"
 ```
-And use you access key 
-## Usage
 
-```python
-import foobar
 
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
