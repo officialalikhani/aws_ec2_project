@@ -1,7 +1,7 @@
 # Create Instances  in aws with API
 
 Create Instances in aws cloud platform services with API , This project has made with python fastapi for beckend and postgresql for database.
-Also, You can use the Docker images that has been built for more convenient and stable solution , There are  Dockerfiles and Docker-compose. \
+Also, You can use the Docker images that has been built for more convenient and stable solution , There are  Dockerfiles and Docker-compose.
 ```bash
 You can pull These images from my docker repository , See my repo "https://hub.docker.com/u/officialalikhani"
 ```
