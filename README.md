@@ -1,14 +1,14 @@
 # Create Instances  in aws with API
 
 Create Instances in aws cloud platform services with API , This project has made with python fastapi for beckend and postgresql for database.
-Also, You can use the Docker images that has been built for more convenient and stable solution , There are  Dockerfiles and Docker-compose.
-
+Also, You can use the Docker images that has been built for more convenient and stable solution , There are  Dockerfiles and Docker-compose.\
+You can pull These images from my docker repository , See my repo "https://hub.docker.com/u/officialalikhani" \
 ## Installation
 
-Use the Dockerfile(postgres) for database, And use the Dockerfile(python) for beckend API.
-Also use postgres.sh for create database with tables and columns , you should copy this file onto docker image but don't worry about this, On dockerfile this problem was solved.
-At first install docker and docker-compose in your os environment.
-After that run this command 
+Use the Dockerfile(postgres) for database, And use the Dockerfile(python) for beckend API.\
+Also use postgres.sh for create database with tables and columns , you should copy this file onto docker image but don't worry about this, On dockerfile this problem was solved.\
+At first install docker and docker-compose in your os environment.\
+After that run this command \
 
 ```bash
 docker-compose up
