@@ -10,7 +10,7 @@ You can pull These images from my docker repository , See my repo "https://hub.d
 Use the Dockerfile(postgres) for database, And use the Dockerfile(python) for beckend API.\
 Also use postgres.sh for create database with tables and columns , you should copy this file onto docker image but don't worry about this, On dockerfile this problem was solved.\
 At first install docker and docker-compose in your os environment.\
-After that run this command 
+After that run this command.
 
 ```bash
 docker-compose up
